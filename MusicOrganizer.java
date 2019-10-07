@@ -59,7 +59,10 @@ public class MusicOrganizer
             player.startPlaying(track.getFilename());
             System.out.println("Now playing: " + track.getArtist() + " - " + track.getTitle());
         }
+        System.out.println("Play Count: "+track.getplaycount());
+    
     }
+
     
     /**
      * Return the number of tracks in the collection.
@@ -141,7 +144,7 @@ public class MusicOrganizer
         
         if(indexValid(randInt)) {
             Track = track = tracks.get(randInt);
-            
+        
             player.startPlaying(track.getFilename());
             
             
@@ -150,6 +153,17 @@ public class MusicOrganizer
     }
     
 }
+    public void playShuffleTracks(){
+        ArrayList newTracks =tracks; 
+        Collections,shuffle(newTracks);
+        
+        for(int i =0;i <= newTracks.size() -1;i = i+1)
+        {
+            Track track = newTracks.get(i);
+            System.out.println("Now Playing: " +track.getArtist() + "-"+track.getTitle());
+            player.PlaySample(track.getFilename());
+        }
+    }
 
     /**
      * Determine whether the given index is valid for the collection.
@@ -187,4 +201,6 @@ public class MusicOrganizer
         }
     }
     
+
+}
 }
